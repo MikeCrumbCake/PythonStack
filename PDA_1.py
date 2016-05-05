@@ -9,6 +9,43 @@ class PDA():
     header =  "Step" + "State" + "String" + "Stack" + "Rule used"
     def delta(stack, str, state, step):
         r = 0
+        if step == 0:
+            r= -1
+        elif state == 0:
+            state = 1
+            stack += "S"
+            r = 1
+        elif state == 1:
+            if str[0] == 'a':
+                state = 2
+                str = str[1:]
+                r = 4
+            elif str[0] == 'b':
+                state = 3
+                str = str[1:]
+                r = 6
+            elif str[0] == '$':
+                state = 4
+                str = str[1:]
+                r = 8
+        elif state == 2:
+            if stack[0] == 'a':
+                state = 1
+                stack = stack[1:]
+                r = 5
+            elif stack[0] == 'S':
+                stack = stack[1:]
+                stack = "aSb" + stack
+                r = 3
+	elif state == 3:
+		if stack[0] == 'b':
+			stack = stack[1:]
+			state = 1
+			r = 7
+		elif stack[0] == 'S':
+			stack = stack[1:]
+			r = 2
+		print(stack, str, state, step, r)
         #This will be built out tomorrow
     def init(stack, str, state):
         #not quite sure what this does....
