@@ -1,7 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <stdlib.h>
-using namespace std
+# This is the file that does all of the stack operation.
+
 
 def pad(self, str, width, bool):
 def expand(self, str):
@@ -16,7 +14,7 @@ class PDAprivate:
 	                                   void print(string stack, str, state, step, r)
 
 public:
-	                                   PDA(); #set first two lines of table in constructor 
+	                                   PDA(); #set first two lines of table in constructor
 	void process(string var)
 
 
